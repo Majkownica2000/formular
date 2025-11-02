@@ -5,29 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulář</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/styles.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <header>
+<body class="bg-light">
 
-    </header>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Výpočet objemu, obsahu a obvodu válce</h1>
 
-    <main>
+        <div class="card p-4">
+            <form id="formular">
+                <div class="mb-3">
+                    <label for="polomer" class="form-label">Poloměr základny (cm)</label>
+                    <input type="number" id="polomer" class="form-control" placeholder="Zadej poloměr" required>
+                </div>
 
-    </main>
+                <div class="mb-3">
+                    <label for="vyska" class="form-label">Výška válce (cm)</label>
+                    <input type="number" id="vyska" class="form-control" placeholder="Zadej výšku" required>
+                </div>
 
-    <footer>
+                <div class="mb-3">
+                    <label for="volba" class="form-label">Co chcete spočítat?</label>
+                    <select id="volba" class="form-select">
+                        <option value="objem">Objem</option>
+                        <option value="obsah">Obsah</option>
+                        <option value="obvod">Obvod</option>
+                    </select>
+                </div>
 
+                <button type="button" id="spocitat" class="btn btn-primary">Spočítat</button>
+            </form>
+        </div>
 
+        <div class="mt-4 p-3 bg-white rounded shadow-sm">
+            <h4>Výsledek:</h4>
+            <p id="vysledek">Zatím nic není spočítáno.</p>
+        </div>
+    </div>
 
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="./javaScript/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Pripojeni JavaScript souboru -->
+    <script src="./javaScript/script.js"> </script>
+
 </body>
 
 </html>
