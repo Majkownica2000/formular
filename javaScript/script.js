@@ -28,7 +28,7 @@ document.getElementById("spocitat").addEventListener("click", function () {
 	// prevod na cislo s desetinou carkou
 	r = parseFloat(r);
 	v = parseFloat(v);
-
+	
 	// kontrola vstupniho cisla
 	if (isNaN(r) || isNaN(v) || r <= 0 || v <= 0) {
 		document.getElementById("vysledek").textContent = "Zadej kladné čísla pro poloměr a výšku!";
