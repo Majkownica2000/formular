@@ -1,3 +1,25 @@
+const valec = {
+	polomer: 0,
+	vyska: 0,
+
+	nastav(r, v) {
+		this.polomer = r;
+		this.vyska = v;
+	},
+
+	vypocetObjemu() {
+		return Math.PI * Math.pow(this.polomer, 2) * this.vyska;
+	},
+
+	vypocetObsahu() {
+		return Math.PI * Math.pow(this.polomer, 2) * 2 + 2 * Math.PI * this.polomer * this.vyska;
+	},
+
+	vypocetObvodu() {
+		return 2 * Math.PI * this.polomer;
+	}
+};
+
 document.getElementById("spocitat").addEventListener("click", function () {
 	let r = document.getElementById("polomer").value;
 	let v = document.getElementById("vyska").value;
@@ -12,29 +34,33 @@ document.getElementById("spocitat").addEventListener("click", function () {
 		document.getElementById("vysledek").textContent = "Zadej kladné čísla pro poloměr a výšku!";
 		return;
 	}
-	let objem, obsah, obvod;
-	// vypocet objemu valce
+
+	//nastaveni hodnot objektu valec
+	valec.nastav(r, v);
+
+	//vytvoreni promenne pro vysledek
+	let vysledek = 0;
+
+	// vyvolani funkci pro vypocet objemu valce
 	switch (volba) {
-		case "objem": objem = Math.PI * Math.pow(r, 2) * v;
+		case "objem": vysledek = valec.vypocetObjemu();
 			break;
-		case "obsah": obsah = Math.PI * Math.pow(r, 2) * 2 + 2 * Math.PI * r * v;
+		case "obsah": vysledek = valec.vypocetObsahu();
 			break;
-		case "obvod": obvod = 2 * Math.PI * r;
+		case "obvod": vysledek = valec.vypocetObvodu();
 			break;
 	}
-
-
 
 	// zobrazeni vysledku
 	switch (volba) {
 		case "objem": document.getElementById("vysledek").textContent =
-			"Objem válce je " + objem.toFixed(2) + " cm³";
+			"Objem válce je " + vysledek.toFixed(2) + " cm³";
 			break;
 		case "obsah": document.getElementById("vysledek").textContent =
-			"Obsah válce je " + obsah.toFixed(2) + " cm²";
+			"Obsah válce je " + vysledek.toFixed(2) + " cm²";
 			break;
 		case "obvod": document.getElementById("vysledek").textContent =
-			"Obvod válce je " + obvod.toFixed(2) + " cm";
+			"Obvod válce je " + vysledek.toFixed(2) + " cm";
 			break;
 	}
 
